@@ -9,16 +9,15 @@
 P.S. No need to install Golang
 
 # 1. Clone openwrt
-    git clone https://github.com/shawhu/openwrt/tree/openwrt-19.07 openwrt
+    git clone -b openwrt-19.07 https://github.com/shawhu/openwrt openwrt
     cd openwrt
-
-# 2. Update feeds
-    ./scripts/feeds update -a
-    ./scripts/feeds install -a
-
-# 3. Add dependencies
+# 2. Add dependencies
     cd openwrt/package
     git clone https://github.com/shawhu/openwrt-passwall shawhu
+    
+# 3. Update feeds
+    ./scripts/feeds update -a
+    ./scripts/feeds install -a
 
 # 4. make some changes
 update go to 1.15

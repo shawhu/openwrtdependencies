@@ -29,7 +29,8 @@ update go to 1.15
     PKG_HASH:=540c0ab7781084d124991321ed1458e479982de94454a98afab6acadf38497c2 (将此字段修改为golang 15.8的源码hash值)
 
 
-add upx
+Add upx
+
 execute addupx.sh
 
 And update the feeds again

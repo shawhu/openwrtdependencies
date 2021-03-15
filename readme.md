@@ -8,19 +8,20 @@
 
 P.S. No need to install Golang
 
-# 1. Clone openwrt
-    git clone -b openwrt-19.07 https://github.com/shawhu/openwrt openwrt
+# 1. Clone openwrt from lean (openwrt source has compatibility issues with themes)
+    (no good)git clone -b openwrt-19.07 https://github.com/shawhu/openwrt openwrt
+    git clone https://github.com/coolsnowwolf/lede openwrt
     cd openwrt
 # 2. Add dependencies
-    cd openwrt/package
+    cd package
     git clone https://github.com/shawhu/openwrt-passwall shawhu
     
 # 3. Update feeds
     ./scripts/feeds update -a
     ./scripts/feeds install -a
 
-# 4. make some changes
-update go to 1.15
+# 4. make some changes (if using openwrt official repo)
+- update go to 1.15
 
     [openwrt_sdk_folder]/feeds/packages/lang/golang/golang-version.mk
     -----------------------------------------------------------------
@@ -34,7 +35,7 @@ update go to 1.15
     PKG_HASH:=540c0ab7781084d124991321ed1458e479982de94454a98afab6acadf38497c2 (将此字段修改为golang 15.8的源码hash值)
 
 
-Add upx
+- Add upx
 
 execute addupx.sh
 

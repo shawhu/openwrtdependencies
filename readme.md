@@ -48,16 +48,19 @@ And update the feeds again
 # 5 Download stuff
     make -j8 download
 
-# 6 generate config
+# 6 Generate config
 make menuconfig
 add luci-app-xxxxx
 check network/xxxxx
 remove base/dnsmask and choose dnsmaskfull
 
 
-# 7 make
+# 7 Make
     make -j1 V=s
     
+the final image is in bin/X86/xxxx folder
+initial ip is 192.168.17.234, and it binds eth0 (the first port on the left or right)
+initial password: password
 
 # Others
 

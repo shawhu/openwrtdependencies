@@ -20,8 +20,8 @@ P.S. No need to install Golang
     ./scripts/feeds update -a
     ./scripts/feeds install -a
 
-# 4. make some changes (if using openwrt official repo)
-- update go to 1.15
+# 4. make some changes (required for openwrt official repo)
+- update go to 1.15 (don't do this if using lean's repo)
 
     [openwrt_sdk_folder]/feeds/packages/lang/golang/golang-version.mk
     -----------------------------------------------------------------
@@ -35,7 +35,7 @@ P.S. No need to install Golang
     PKG_HASH:=540c0ab7781084d124991321ed1458e479982de94454a98afab6acadf38497c2 (将此字段修改为golang 15.8的源码hash值)
 
 
-- Add upx
+- Add upx (don't do this if using lean's repo)
 
 execute addupx.sh
 
@@ -58,11 +58,13 @@ remove base/dnsmask and choose dnsmaskfull
 # 7 Make
     make -j1 V=s
     
-the final image is in bin/X86/xxxx folder
-initial ip is 192.168.17.234, and it binds eth0 (the first port on the left or right)
-initial password: password
+- the final image is in [openwrtfolder]/bin/X86/xxxx folder
+- initial ip is 192.168.17.234, and it binds eth0 (the first port on the left or right)
+- initial root user password: password
 
-# Others
+# Others luci apps
+- add nano
+
 
 - add diskman
 
@@ -71,14 +73,13 @@ initial password: password
     mkdir -p package/parted && \
     wget https://raw.githubusercontent.com/lisaac/luci-app-diskman/master/Parted.Makefile -O package/parted/Makefile
 
-    #compile package only
+compile package only
+
     make package/luci-app-diskman/compile V=99
     
-    #compile
-    make menuconfig
-    #choose LuCI ---> 3. Applications  ---> <*> luci-app-diskman..... Disk Manager interface for LuCI ----> save
-    make V=99
-    
+
+
+
 
 
 
